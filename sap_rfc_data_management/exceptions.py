@@ -1,0 +1,2 @@
+class SAPException(Exception):
+    pass
