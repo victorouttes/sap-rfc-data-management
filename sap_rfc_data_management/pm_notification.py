@@ -32,6 +32,7 @@ class PMNotification:
                title: str,
                reported_by: str,
                priority: str,
+               workcenter_id: str,
                date_malfunction: datetime.date):
         connection = self.connection.get_connection()
         create = connection.call(
@@ -44,6 +45,7 @@ class PMNotification:
                 'NOTIF_DATE': datetime.date.today().strftime('%Y%m%d'),
                 'STRMLFNDATE': date_malfunction.strftime('%Y%m%d'),
                 'PRIORITY': priority,
+                'PM_WKCTR': workcenter_id
             },
             NOTIF_TYPE=notification_type
         )
