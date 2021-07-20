@@ -9,6 +9,8 @@ You need to install Cython before install this lib:
 pip install Cython
 ```
 
+Also need to install SAP RFC SDK.
+
 # Install
 ```
 pip install sap-rfc-data-management
