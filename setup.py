@@ -10,7 +10,7 @@ setup(
     packages=[
         'sap_rfc_data_management',
     ],
-    version='0.3',
+    version='0.4',
     license='MIT',
     description='Automate some SAP transactions',
     long_description=long_description,
@@ -18,7 +18,7 @@ setup(
     author='Victor Outtes',
     author_email='victor.outtes@gmail.com',
     url='https://github.com/victorouttes/sap-rfc-data-management',
-    download_url='https://github.com/victorouttes/sap-rfc-data-management/archive/refs/tags/0.3.tar.gz',
+    download_url='https://github.com/victorouttes/sap-rfc-data-management/archive/refs/tags/0.4.tar.gz',
     keywords=['sap', 'data', 'rfc', 'automate', 'ec3', 'pm'],
     install_requires=[
         'Cython~=0.29.23',
