@@ -19,9 +19,10 @@ pip install sap-rfc-data-management
 # Usage
 ### Create PM notification:
 ```python
+from sap_rfc_data_management.connection import SAPConnection
 from sap_rfc_data_management.pm_notification import PMNotification
 
-runner = PMNotification(
+connection = SAPConnection(
     host=SAP_HOST,
     service=SAP_SERVICE,
     group=SAP_GROUP,
@@ -31,6 +32,9 @@ runner = PMNotification(
     user=SAP_USER,
     password=SAP_PASSWORD
 )
+
+runner = PMNotification(connection=connection)
+
 number = runner.create(
     title='notification title',
     notification_type='notification type',
@@ -46,9 +50,10 @@ print(number)  # created notification's number
 
 ### Change PM equipment ABC code:
 ```python
+from sap_rfc_data_management.connection import SAPConnection
 from sap_rfc_data_management.pm_equipment import PMEquipment
 
-runner = PMEquipment(
+connection = SAPConnection(
     host=SAP_HOST,
     service=SAP_SERVICE,
     group=SAP_GROUP,
@@ -58,6 +63,8 @@ runner = PMEquipment(
     user=SAP_USER,
     password=SAP_PASSWORD
 )
+
+runner = PMEquipment(connection=connection)
 runner.change(
     equipment='equipment number to be changed',
     abc_code='new abc code (1 character)'

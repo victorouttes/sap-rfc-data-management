@@ -1,31 +1,12 @@
 import datetime
 
-from .connection import SAPConnection
-from .exceptions import SAPException
 from pyrfc import ABAPApplicationError, ABAPRuntimeError, LogonError, CommunicationError
 
+from sap_rfc_data_management.sap_generic import SAP
+from .exceptions import SAPException
 
-class PMNotification:
-    def __init__(self,
-                 host: str,
-                 service: str,
-                 group: str,
-                 sysname: str,
-                 client: str,
-                 lang: str,
-                 user: str,
-                 password: str):
-        self.connection = SAPConnection(
-            host=host,
-            service=service,
-            group=group,
-            sysname=sysname,
-            client=client,
-            lang=lang,
-            user=user,
-            password=password
-        )
 
+class PMNotification(SAP):
     def create(self,
                notification_type: str,
                equipment: str,
