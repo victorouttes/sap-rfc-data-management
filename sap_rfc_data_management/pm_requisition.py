@@ -35,7 +35,13 @@ class PMRequisition(SAP):
                     raise DefaultException('COST_CTR must be filled.')
                 if item_acctasscat == 'F' and not 'ORDER_NO' in items_account[index]:
                     raise DefaultException('ORDER_NO must be filled.')
-                        
+            for item in items:
+                item['MATERIAL'] = item['MATERIAL'].zfill(18)
+                
+            for item in items_account:
+                if 'ORDER_NO' in item:
+                    item['ORDER_NO'] = item['ORDER_NO'].zfill(12)
+                         
             create = connection.call(
               'BAPI_REQUISITION_CREATE',
                REQUISITION_ITEMS=items,
@@ -46,7 +52,7 @@ class PMRequisition(SAP):
             
             for message in return_messages:
                 if message['TYPE'] == 'E':
-                    raise SAPException
+                    return "{}".format(message)
                 
             connection.call('BAPI_TRANSACTION_COMMIT')
 
